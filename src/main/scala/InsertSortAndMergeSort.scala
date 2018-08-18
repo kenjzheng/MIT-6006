@@ -15,18 +15,22 @@ object InsertSortAndMergeSort extends App {
   val test1 = Array(1,4)
   println(sort.insertionSort(test1,0,0).mkString(","))
   println(sort.mergeSort(test1).mkString(","))
+  println(sort.bubbleSort(test1).mkString(","))
 
   val test2 = Array(4,1)
   println(sort.insertionSort(test2,0,0).mkString(","))
   println(sort.mergeSort(test2).mkString(","))
+  println(sort.bubbleSort(test2).mkString(","))
 
   val test3 = Array(3,1,7,8,2,4)
   println(sort.insertionSort(test3,0,0).mkString(","))
   println(sort.mergeSort(test3).mkString(","))
+  println(sort.bubbleSort(test3).mkString(","))
 
   val test4 = Array(3,4,5,11,22,1,3,6,7,9,22,2,1,5,8,16,7,55,100,22,33,44,8,2,1)
   println(sort.insertionSort(test4,0,0).mkString(","))
   println(sort.mergeSort(test4).mkString(","))
+  println(sort.bubbleSort(test4).mkString(","))
 }
 
 class Sort {
@@ -97,5 +101,18 @@ class Sort {
     }
     //println("sorted->",sortedArray.mkString(","))
     sortedArray.toArray
+  }
+
+  def bubbleSort(array: Array[Int]):Array[Int] = {
+    for(i <- 0 to array.length-1){
+      for(j <- i+1 to array.length-1){
+        if(array(j)<array(i)){
+          val tmp = array(i)
+          array(i)=array(j)
+          array(j)=tmp
+        }
+      }
+    }
+    array
   }
 }
